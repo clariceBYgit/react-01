@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 引入
+import {
+  TodoHeader,
+  TodoInput,
+  TodoList
+  
+} from './components'
+
+//Fragment  类似一个空标签  也可以直接写  <>   </>  当不需要外层的div时
+export default class App extends Component {
+  render() {
+    return (
+      <Fragment>
+        <TodoHeader desc='今日事，今日办' x={1} y={2} a='3' b='4'>
+          <i>待办事项列表</i>
+        </TodoHeader>
+        <TodoInput btnText='ADD' />
+        <TodoList />
+      </Fragment>
+    )
+  }
 }
-
-export default App;
