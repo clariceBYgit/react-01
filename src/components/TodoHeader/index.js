@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
+
 export default function TodoHeader(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <>
       <h1>
@@ -24,4 +26,7 @@ TodoHeader.propTypes = {
   a: PropTypes.string //若不是数值型会报错Warning: Failed prop type: Invalid prop `a` of type `string` supplied to `TodoHeader`, expected `number`.
 
 
+}
+TodoHeader.defaultProps = {
+  desc: '昨日清风徐徐'
 }
