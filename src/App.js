@@ -62,6 +62,21 @@ export default class App extends Component {
 
   }
 
+  // 改变checkbox的状态
+  onOkChange = (id) => {
+    this.setState((preState)=>{
+      return {
+        todos: preState.todos.map(todo => {
+          if (todo.id === id) {
+            todo.isOk = !todo.isOk
+          }
+          
+          return todo
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <Fragment>
@@ -69,7 +84,7 @@ export default class App extends Component {
           {this.state.title}
         </TodoHeader>
         <TodoInput addTodo={this.addTodo} />
-        <TodoList todos={this.state.todos} />
+        <TodoList onOkChange={this.onOkChange} todos={this.state.todos} />
         <Like />
       </Fragment>
     )
