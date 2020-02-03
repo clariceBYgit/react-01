@@ -6,13 +6,13 @@ export default class TodoItem extends Component {
 //   constructor (props) {
 //     super()
 //     this.state = {
-//       okText : props.isOk ? '完成' : '未完成'
+//       okText : props.completed ? '完成' : '未完成'
 //     }
 //   }
 //     // （老版本） 就需要借助于  UNSAFE_componentWillReceiveProps来做一次修正
 //   UNSAFE_componentWillReceiveProps (nextProps) {
 //     this.setState({
-//       okText : nextProps.isOk ? '完成' : '未完成'
+//       okText : nextProps.completed ? '完成' : '未完成'
 //     })
 //   }
 
@@ -25,9 +25,9 @@ export default class TodoItem extends Component {
   }
 
 static getDerivedStateFromProps (props) {
-  console.log(props.isOk)
+  // console.log(props.completed)
   return {
-    okText: props.isOk ? '完成' : '未完成'
+    okText: props.completed ? '完成' : '未完成'
   }
 }
 
@@ -55,13 +55,13 @@ static getDerivedStateFromProps (props) {
   // shouldComponentUpdate (nextProps, nextState) {
   //   // console.log(nextProps)
 
-  //   return nextProps.isOk !== this.props.isOk
+  //   return nextProps.completed !== this.props.completed
   // }
 
   render() {
-      console.log(`TodoItem ${this.props.title} render`)
+      // console.log(`TodoItem ${this.props.title} render`)
     const { 
-      isOk,
+      completed,
       title,
       peo
     } = this.props
@@ -70,10 +70,10 @@ static getDerivedStateFromProps (props) {
       <li>
         
         <input type='checkbox'
-          checked={isOk}
+          checked={completed}
           onChange={this.hanleCheckbox}
         />
-        {/* <span>{peo} {title} {isOk? '完成' : '未完成'}</span> */}
+        {/* <span>{peo} {title} {completed? '完成' : '未完成'}</span> */}
         <span>{peo} {title} {this.state.okText}</span>
       
       </li>
@@ -112,13 +112,13 @@ static getDerivedStateFromProps (props) {
 //   shouldComponentUpdate (nextProps, nextState) {
 //     console.log(nextProps)
 
-//     return nextProps.isOk !== this.props.isOk
+//     return nextProps.completed !== this.props.completed
 //   }
 
 //   render() {
 //       console.log(`TodoItem ${this.props.title} render`)
 //     const {
-//       isOk,
+//       completed,
 //       title,
 //       peo
 //     } = this.props
@@ -127,10 +127,10 @@ static getDerivedStateFromProps (props) {
 //       <li>
         
 //         <input type='checkbox'
-//           checked={isOk}
+//           checked={completed}
 //           onChange={this.hanleCheckbox}
 //         />
-//         <span>{peo} {title} {isOk? '完成' : '未完成'}</span>
+//         <span>{peo} {title} {completed? '完成' : '未完成'}</span>
 
 //       </li>
 //     )

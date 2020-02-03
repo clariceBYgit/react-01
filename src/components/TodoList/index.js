@@ -8,7 +8,7 @@ export default class TodoList extends Component {
     todos: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      isOk: PropTypes.bool.isRequired
+      completed: PropTypes.bool.isRequired
     })).isRequired,
     onOkChange:PropTypes.func
   }
@@ -26,7 +26,7 @@ export default class TodoList extends Component {
               //   key={todo.id}
               //   id={todo.id}
               //   title={todo.title}
-              //   isOk={todo.isOk}
+              //   completed={todo.completed}
               // />
               // 方法二：会更好一些
               <TodoItem 
