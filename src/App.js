@@ -65,7 +65,7 @@ export default class App extends Component {
   // 改变checkbox的状态
   onOkChange = (id) => {
     this.setState((preState)=>{
-      return {
+      return { 
         todos: preState.todos.map(todo => {
           if (todo.id === id) {
             todo.isOk = !todo.isOk
@@ -90,3 +90,4 @@ export default class App extends Component {
     )
   }
 }
+  
