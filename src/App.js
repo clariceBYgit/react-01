@@ -46,10 +46,10 @@ export default class App extends Component {
         // 处理错误
 
       }
-      console.log(res)
+      // console.log(res)
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
     })
     .finally(()=>{
       this.setState({
