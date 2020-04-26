@@ -11,7 +11,7 @@ import App from './App'
 
 
 // immutable.js的使用
-import {  Map, List, fromJS } from 'immutable'
+import {  Map, List, fromJS, is } from 'immutable'
 
 
 const state = {
@@ -50,11 +50,23 @@ console.log(jsState.get('courses').get(0))  //英语
 console.log(jsState.getIn(['courses',0]))   //  上述的简写   英语
 // 取出obj下的y中的z
 console.log(jsState.getIn(['obj','y','z']))  //2
+// 取出obj下的y中的z+1
+const newZ1 = jsState.updateIn(['obj','y','z'], v => v + 1)
+console.log(newZ1.getIn(['obj','y','z']))  //3
 // 修改obj下的y中的z为100
 const newZ  = jsState.setIn(['obj','y','z'],100)
 console.log(newZ.getIn(['obj','y','z']))  //100
 
 // immutable  转化为原生的js  toJS()
+
+
+// immutable  比较  equal  is()  数据一样
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = Map({ a: 1, b: 2, c: 3 });
+console.log(map1.equals(map2))  //  true
+console.log(is(map1, map2))  //true
+
+
 
 
 
