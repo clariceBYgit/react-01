@@ -86,8 +86,54 @@ console.log(is(map1, map2))  //true
 // 第二步 在prototype上挂载一个叫http,然后就可以在组件内部通过this.http.方法名来执行一些操作
 // React.Component.prototype.http = services
 
+// 插槽
+class ParentCom extends React.Component {
+  render(){
+    return(
+      <div>
+       <h1>react插槽</h1>
+       <ChildCom>
+         <h1 data-position='top'>这是放置到顶部的内容</h1>
+         <h1 data-position='bottom'>这是放置到尾部的内容</h1>
+       </ChildCom>
+      </div>
+    )
+  }
+}
+
+class ChildCom extends React.Component {
+  render(){
+    let topCom,bottomCom ;
+    this.props.children.forEach((item,index) => {
+      switch (item.props['data-position']) {
+        case 'top':
+          return (
+            topCom = item
+          )
+        case 'bottom':
+          return(
+            bottomCom = item
+          )
+        default:
+      }
+    });
+    return(
+      <div>
+        <div className='top'>
+          {topCom}
+        </div>
+        <div className='bottom'>
+          {bottomCom}
+        </div>
+          
+      </div>
+    )
+  }
+}
+ 
+
 
 render(
-  <App />,
+  <ParentCom />,
   document.querySelector('#root')
 )
